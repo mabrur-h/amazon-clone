@@ -23,9 +23,13 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 
-const productRoutes = require('./routes/product');
-app.use("/api", productRoutes);
+const productRoutes = require('./routes/ProductRoute');
+const categoryRoutes = require('./routes/CategoryRoute');
+const ownerRoutes = require('./routes/OwnerRoute');
 
+app.use("/api", productRoutes);
+app.use("/api", categoryRoutes);
+app.use("/api", ownerRoutes);
 
 
 
