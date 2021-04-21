@@ -18,4 +18,4 @@ const ProductSchema = new Schema({
     rating: [Number]
 });
 
-module.exports = mongoose.model('product', ProductSchema)
+module.exports = mongoose.model('products', ProductSchema)

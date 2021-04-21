@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 
-const User = require('./models/UserModel')
+const User = require('./models/UserModel');
 
 dotenv.config();
 
@@ -23,24 +23,10 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 
-// retrieve data from the server
-app.get('/', (req, res) => {
-    res.json('Hello !');
-})
+const productRoutes = require('./routes/product');
+app.use("/api", productRoutes);
 
 
-// send data from frontend to backend
-app.post('/', (req, res) => {
-    let user = new User();
-    user.name = req.body.name;
-    user.email = req.body.email;
-    user.password = req.body.password;
-
-    user.save((err) => {
-        if (err) res.json (err)
-        else res.json('successfully saved')
-    })
-})
 
 
 app.listen(process.env.PORT, (err) => {
