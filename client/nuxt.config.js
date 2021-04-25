@@ -1,5 +1,3 @@
-const URL = "http://localhost:1010"
-
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -39,12 +37,30 @@ export default {
     '@nuxtjs/axios',
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
+    '@nuxtjs/auth-next'
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     proxy: true,
-    baseURL: URL
+    baseURL: "http://localhost:1010"
+  },
+
+  proxy: {
+    "/api": "http://localhost:1010"
+  },
+
+  auth: {
+    strategies: {
+      local: {
+        endpoints: {
+          login: {
+            propertyName: "token"
+          },
+          logout: true
+        }
+      }
+    }
   },
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa

@@ -355,7 +355,7 @@ export default {
   name: "_id",
   async asyncData({ $axios, params }) {
     try {
-      let response = await $axios.$get(`http://localhost:1010/api/products/${params.id}`)
+      let response = await $axios.$get(`/api/products/${params.id}`)
       console.log (response)
 
       return {

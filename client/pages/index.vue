@@ -113,7 +113,7 @@ export default {
   components: {FeaturedProduct},
   async asyncData({$axios}) {
     try {
-      let response = await $axios.$get("http://localhost:1010/api/products");
+      let response = await $axios.$get("api/products");
       return {
         products: response.products
       }
