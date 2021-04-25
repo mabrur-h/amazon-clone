@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const User = require('../models/UserModel');
 const jwt = require('jsonwebtoken');
+const verifyToken = require('../middlewares/VerifyToken');
 
 
 router.post('/auth/signup', async(req, res) => {
@@ -32,5 +33,56 @@ router.post('/auth/signup', async(req, res) => {
     }
 });
 
+
+router.get('/auth/user', verifyToken, async (req, res) => {
+    try {
+        let foundUser = await User.findOne({ _id: req.decoded._id });
+        if ( foundUser ) {
+            res.json({
+                success: true,
+                user: foundUser
+            })
+        }
+    } catch (e) {
+        res.status(500).json({
+            success: false,
+            message: e.message
+        })
+    }
+})
+
+
+router.post('/auth/login', async (req, res) => {
+    try {
+        let foundUser = await User.findOne({ email: req.body.email });
+        if ( !foundUser ) {
+            res.status(500).json({
+                success: false,
+                message: "Authentication failed, user not found!"
+            })
+        } else {
+            if ( foundUser.comparePassword(req.body.password) ) {
+                let token = jwt.sign(foundUser.toJSON(), process.env.SECRET_WORD, {
+                    expiresIn: 60480
+                })
+
+                res.json({
+                    success: true,
+                    token: token
+                })
+            } else {
+                res.status(403).json({
+                    success: false,
+                    message: "Authentication failed, wrong password!"
+                })
+            }
+        }
+    } catch (e) {
+        res.status(500).json({
+            success: false,
+            message: "Authentication failed, user not found!"
+        })
+    }
+})
 
 module.exports = router;
