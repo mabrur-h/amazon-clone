@@ -15,13 +15,13 @@ const upload = require('../middlewares/UploadPhoto')
 router.post('/products', upload.single("photo"), async (req, res) => {
     try {
         let product = new ProductRoute();
-        product.ownerID = req.body.ownerID;
-        product.categoryID = req.body.categoryID;
         product.price = req.body.price;
         product.title = req.body.title
         product.description = req.body.description
         product.photo = req.file.location
         product.stockQuantity = req.body.stockQuantity
+        product.categoryID = req.body.categoryID;
+        product.ownerID = req.body.ownerID;
 
         await product.save()
 
@@ -41,7 +41,10 @@ router.post('/products', upload.single("photo"), async (req, res) => {
 // GET request - get all products
 router.get('/products', async (req, res) => {
     try {
-        let products = await ProductRoute.find();
+        let products = await ProductRoute
+            .find()
+            .populate('categoryID ownerID')
+            .exec();
         res.json({
             success: true,
             products
@@ -58,7 +61,10 @@ router.get('/products', async (req, res) => {
 // GET request - get single product
 router.get('/products/:id', async (req, res) => {
     try {
-        let product = await ProductRoute.findOne({_id: req.params.id});
+        let product = await ProductRoute
+            .findOne({_id: req.params.id})
+            .populate('categoryID ownerID')
+            .exec();
         res.json({
             success: true,
             product
