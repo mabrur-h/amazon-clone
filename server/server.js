@@ -30,6 +30,7 @@ const categoryRoutes = require('./routes/CategoryRoute');
 const ownerRoutes = require('./routes/OwnerRoute');
 const authRoutes = require('./routes/AuthRoute');
 const reviewRoutes = require('./routes/ReviewRoute');
+const addressRoutes = require('./routes/AddressRoute');
 
 
 app.use("/api", productRoutes);
@@ -37,7 +38,7 @@ app.use("/api", categoryRoutes);
 app.use("/api", ownerRoutes);
 app.use("/api", authRoutes);
 app.use("/api", reviewRoutes);
-
+app.use("/api", addressRoutes);
 
 
 app.listen(process.env.PORT, (err) => {
