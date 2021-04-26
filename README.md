@@ -1,2 +1,2 @@
 # amazon-clone
- amazon clone with MEVN stack
+ amazon clone using MEVN stack
