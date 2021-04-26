@@ -43,7 +43,7 @@ router.get('/products', async (req, res) => {
     try {
         let products = await ProductRoute
             .find()
-            .populate('categoryID ownerID')
+            .populate('categoryID ownerID reviews')
             .exec();
         res.json({
             success: true,

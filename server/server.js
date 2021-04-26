@@ -29,11 +29,14 @@ const productRoutes = require('./routes/ProductRoute');
 const categoryRoutes = require('./routes/CategoryRoute');
 const ownerRoutes = require('./routes/OwnerRoute');
 const authRoutes = require('./routes/AuthRoute');
+const reviewRoutes = require('./routes/ReviewRoute');
+
 
 app.use("/api", productRoutes);
 app.use("/api", categoryRoutes);
 app.use("/api", ownerRoutes);
 app.use("/api", authRoutes);
+app.use("/api", reviewRoutes);
 
 
 
