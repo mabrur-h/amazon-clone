@@ -40,7 +40,7 @@
           <div class="col-xl-6 col-lg-5 col-md-4 col-sm-6 p-0">
             <div class="nav-fill">
               <div class="nav-shop">
-                <nuxt-link to="/history" class="nav-a nav-a-2 nav-single-row-link">
+                <nuxt-link to="/orders" class="nav-a nav-a-2 nav-single-row-link">
                   <span class="nav-line-2">
                     Browsing history
                     <span class="nav-icon nav-arrow" style="visibility: visible"></span>

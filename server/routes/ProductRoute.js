@@ -1,7 +1,8 @@
 const router = require('express').Router();
 const ProductRoute = require('../models/ProductModel');
-
+const Users = require('../models/UserModel')
 const upload = require('../middlewares/UploadPhoto')
+const {isAdmin} = require('../middlewares/isAdmin')
 /*
     title: String,
     description: String,
