@@ -65,7 +65,25 @@ router.get('/countries', async (req, res) => {
     }
 })
 
-router.put('/address/:id', VerifyToken, async (req, res) => {
+
+router.get('/addresses/:id', VerifyToken, async (req, res) => {
+    try {
+        let address = await Address.findOne({ _id: req.params.id });
+
+        res.json({
+            success: true,
+            address: address
+        })
+    } catch (e) {
+        res.status(500).json({
+            success: false,
+            message: e.message
+        })
+    }
+})
+
+
+router.put('/addresses/:id', VerifyToken, async (req, res) => {
     try {
         let foundAddress = await Address.findOne({ _id: req.params.id })
         if ( foundAddress ) {
@@ -118,8 +136,8 @@ router.delete('/addresses/:id', VerifyToken, async (req, res) => {
 
 router.put('/addresses/set/default', VerifyToken, async (req, res) => {
     try {
-        const doc = await User.findOneAndUpdate({ _id: req.decoded._id }, { $set: { address: req.body._id } });
-        if ( doc ) {
+        const updatedAddressUser = await User.findOneAndUpdate({ _id: req.decoded._id }, { $set: { address: req.body.id } });
+        if ( updatedAddressUser ) {
             res.json({
                 success: true,
                 message: "Address successfully set as default"

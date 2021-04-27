@@ -30,7 +30,7 @@
                     Deliver to
                   </span>
                   <span class="nav-line-1 mt-0" id="glow-ingress-line2">
-                    California
+                    Tashkent
                   </span>
                 </div>
               </nuxt-link>
