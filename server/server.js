@@ -32,6 +32,7 @@ const authRoutes = require('./routes/AuthRoute');
 const reviewRoutes = require('./routes/ReviewRoute');
 const addressRoutes = require('./routes/AddressRoute');
 const paymentRoutes = require('./routes/PaymentRoute');
+const ordersRoutes = require('./routes/OrdersRoute');
 
 
 app.use("/api", productRoutes);
@@ -41,6 +42,7 @@ app.use("/api", authRoutes);
 app.use("/api", reviewRoutes);
 app.use("/api", addressRoutes);
 app.use("/api", paymentRoutes);
+app.use("/api", ordersRoutes);
 
 
 app.listen(process.env.PORT, (err) => {
