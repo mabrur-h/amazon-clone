@@ -39,7 +39,7 @@
 
               <!-- Error message  -->
               <div class="a-section a-spacing-none a-spacing-top-small">
-                <b>Error</b>
+                <b class="text-danger">CARD NUMBER FOR TESTING: <span class="text-primary">2223003122003222</span></b>
               </div>
               <form action="#" method="post">
                 <div class="a-spacing-medium a-spacing-top-medium">
