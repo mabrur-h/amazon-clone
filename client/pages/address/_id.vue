@@ -182,9 +182,6 @@ export default {
         response, singleAddress
       ])
 
-      console.log ("RES: ", response)
-      console.log ("single: ", singleAddress)
-
       return {
         countries: countriesResponse,
         address: addressResponse.address

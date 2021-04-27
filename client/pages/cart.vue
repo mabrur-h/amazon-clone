@@ -23,17 +23,17 @@
                       <div class="row">
                         <!-- Product's Image -->
                         <div class="col-sm-2 col-2">
-                          <a href="#" class="a-link-normal">
+                          <nuxt-link :to="`/products/${product._id}`" class="a-link-normal">
                             <img :src="product.photo" class="img-fluid w-100" />
-                          </a>
+                          </nuxt-link>
                         </div>
                         <div class="col-sm-8 col-8">
                           <!-- Product's Title -->
                           <div class="a-spacing-mini">
-                            <a
-                              href="#"
+                            <nuxt-link
+                              :to="`/products/${product._id}`"
                               class="a-link-normal a-size-medium a-text-bold"
-                            >{{ product.title }}</a>
+                            >{{ product.title }}</nuxt-link>
                             <!-- Product's Owner name -->
                             <span class="a-size-base sc-product-creator">by {{ product.ownerID.name }}</span>
                           </div>
@@ -53,9 +53,9 @@
                               <span class="a-checkbox-label">
                                 This is a gift
                                 <span class="a-size-small">
-                                  <a href="#">
+                                  <nuxt-link :to="`/products/${product._id}`">
                                     <span class="a-size-small">Learn More</span>
-                                  </a>
+                                  </nuxt-link>
                                 </span>
                               </span>
                             </label>
