@@ -35,7 +35,7 @@
                               {{ product.title }}
                               <span class="a-letter-space"></span>
                               <span class="a-letter-space"></span>
-                              <span class="a-size-small a-color-secondary">Sep 3, 2019</span>
+                              <span class="a-size-small a-color-secondary">Apr 23, 2021</span>
                             </h2>
                           </nuxt-link>
                         </div>

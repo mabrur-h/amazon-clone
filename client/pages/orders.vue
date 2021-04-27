@@ -48,7 +48,7 @@
                   <div class="a-row">
                     <span class="a-size-mini a-color-secondary">ORDER PLACED</span>
                     <br />
-                    <span class="a-size-base a-text-bold a-color-secondary">May 16, 2016</span>
+                    <span class="a-size-base a-text-bold a-color-secondary">Apr 28, 2021</span>
                   </div>
                 </div>
                 <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2">
@@ -143,6 +143,12 @@
 
 <script>
 export default {
+  middleware({ store, redirect }) {
+    // If the user is not authenticated
+    if (store.state.auth.loggedIn === false) {
+      return redirect('/login')
+    }
+  },
   async asyncData({$axios}) {
     try {
       let response = await $axios.$get('/api/orders');

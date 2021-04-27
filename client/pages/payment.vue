@@ -87,6 +87,12 @@
 import { mapGetters } from "vuex";
 
 export default {
+  middleware({ store, redirect }) {
+    // If the user is not authenticated
+    if (store.state.auth.loggedIn === false) {
+      return redirect('/login')
+    }
+  },
   data() {
     return {
       error: "",
