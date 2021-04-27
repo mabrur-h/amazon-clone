@@ -345,21 +345,31 @@
             </div>
           </div>
         </div>
+        <ReviewSection :product="product" :reviews="reviews" />
       </div>
     </div>
   </main>
 </template>
 
 <script>
+import ReviewSection from "../../components/ReviewSection";
+
 export default {
-  name: "_id",
+  components: {
+    ReviewSection
+  },
   async asyncData({ $axios, params }) {
     try {
-      let response = await $axios.$get(`/api/products/${params.id}`)
-      console.log (response)
+      let singleProduct = await $axios.$get(`/api/products/${params.id}`)
+      let manyReviews = await $axios.$get(`/api/reviews/${params.id}`)
+
+      const [ productResponse, reviewsResponse ] = await Promise.all([
+        singleProduct, manyReviews
+      ])
 
       return {
-        product: response.product
+        product: productResponse.product,
+        reviews: reviewsResponse.reviews
       }
 
     } catch (e) {

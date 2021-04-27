@@ -43,11 +43,12 @@ export default {
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     proxy: true,
-    baseURL: "http://localhost:1010"
+    baseURL: "http://localhost:1010",
+    credentials: false
   },
 
   proxy: {
-    "/api": "http://localhost:1010"
+    "/api": { target: "http://localhost:1010", changeOrigin: true }
   },
 
   auth: {
