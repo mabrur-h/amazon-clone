@@ -1,6 +1,8 @@
 export const state = () => ({
   cart: [],
-  cartLength: 0
+  cartLength: 0,
+  shippingPrice: 0,
+  shippingEstimatedDelivery: ''
 })
 
 
@@ -55,6 +57,16 @@ export const mutations = {
     state.cartLength -= product.quantity;
     let idx = state.cart.indexOf(product);
     state.cart.splice(idx, 1);
+  },
+  setShipping(state, { price, estimatedDelivery }) {
+    state.shippingPrice = price
+    state.shippingEstimatedDelivery = estimatedDelivery
+  },
+  clearCart(state) {
+      state.cart = [],
+      state.cartLength = 0,
+      state.shippingPrice = 0,
+      state.shippingEstimatedDelivery = ''
   }
 }
 
@@ -73,5 +85,16 @@ export const getters = {
     })
 
     return total
+  },
+  getCartTotalPriceWithShipping(state) {
+    let total = 0;
+    state.cart.map(product => {
+      total += product.price * product.quantity
+    })
+
+    return total + state.shippingPrice
+  },
+  getEstimatedDelivery(state) {
+    return state.shippingEstimatedDelivery
   }
 }

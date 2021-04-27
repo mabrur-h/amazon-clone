@@ -1,2 +1,1 @@
-# amazon-clone
- amazon clone using MEVN stack
+TESTING VISA CARD: 2223003122003222
