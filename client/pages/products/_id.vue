@@ -30,7 +30,7 @@
               <!-- Image -->
               <div clas="imgBlock">
                 <div class="eBooksimg">
-                  <img src="/img/featuredProduct.jpg" class="img-fluid" />
+                  <img :src="product.photo" class="img-fluid" style="height: 300px !important;" />
                 </div>
               </div>
 
@@ -245,7 +245,7 @@
                 </div>
 
                 <div class="a-section">
-                  <div class="a-button-stack">
+                  <div class="a-button-stack" @click="addProductToCart(product)">
                     <span class="a-spacing-small a-button-primary a-button-icon">
                       <span class="a-button-inner">
                         <i class="a-icon a-icon-cart"></i>
@@ -353,6 +353,7 @@
 
 <script>
 import ReviewSection from "../../components/ReviewSection";
+import { mapActions } from "vuex";
 
 export default {
   components: {
@@ -375,6 +376,9 @@ export default {
     } catch (e) {
       console.log (e.message)
     }
+  },
+  methods: {
+    ...mapActions(["addProductToCart"])
   }
 }
 </script>
