@@ -53,8 +53,8 @@
                   <a href="/" class="nav-a">Today's deal</a>
                   <a href="/" class="nav-a">Your amazon.com</a>
                   <a href="/" class="nav-a">Gift cards</a>
-                  <a href="/" class="nav-a">Registry</a>
-                  <a href="/" class="nav-a">Sell</a>
+                  <nuxt-link to="/signup" class="nav-a">Registry</nuxt-link>
+                  <nuxt-link to="/cart" class="nav-a">Sell</nuxt-link>
                 </div>
               </div>
 

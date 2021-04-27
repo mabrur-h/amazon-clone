@@ -62,6 +62,12 @@
 
 <script>
 export default {
+  middleware({ store, redirect }) {
+    // If the user is not authenticated
+    if (store.state.auth.loggedIn === false) {
+      return redirect('/login')
+    }
+  },
   name: "category",
 
   data() {

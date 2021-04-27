@@ -50,6 +50,11 @@ export const mutations = {
 
     let idx = state.cart.indexOf(cartProduct);
     state.cart.splice(idx, 1, cartProduct)
+  },
+  removeProduct(state, product) {
+    state.cartLength -= product.quantity;
+    let idx = state.cart.indexOf(product);
+    state.cart.splice(idx, 1);
   }
 }
 

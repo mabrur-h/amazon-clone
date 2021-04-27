@@ -1,7 +1,7 @@
 <template>
   <div class="mainContent">
     <div class="unified_widget pageBanner">
-      <h1>Books</h1>
+        <h1>Books</h1>
       <p>
         <strong>Browse for more books</strong>
         <a href="/">Leaders of notable people</a>
