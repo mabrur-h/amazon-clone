@@ -41,7 +41,7 @@ export default {
   name: "category",
   async asyncData({ $axios }) {
     try {
-      let response = await $axios.$get('http://localhost:1010/api/categories')
+      let response = await $axios.$get('/api/categories')
       return {
         categories: response.categories
       }

@@ -45,12 +45,12 @@ export default {
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     proxy: true,
-    baseURL: "http://localhost:1010",
+    baseURL: "https://amazon-clone-server-api.herokuapp.com",
     credentials: false
   },
 
   proxy: {
-    "/api": { target: "http://localhost:1010", changeOrigin: true }
+    "/api": { target: "https://amazon-clone-server-api.herokuapp.com", changeOrigin: true }
   },
 
   auth: {

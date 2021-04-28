@@ -82,9 +82,9 @@ export default {
   },
   async asyncData({ $axios, params }) {
     try {
-      let categories = $axios.$get('http://localhost:1010/api/categories')
-      let owners = $axios.$get('http://localhost:1010/api/owners')
-      let product = $axios.$get(`http://localhost:1010/api/products/${params.id}`)
+      let categories = $axios.$get('/api/categories')
+      let owners = $axios.$get('/api/owners')
+      let product = $axios.$get(`/api/products/${params.id}`)
 
       const [ categoryRes, ownerRes, productRes ] = await Promise.all([
         categories,
@@ -132,7 +132,7 @@ export default {
       data.append("stockQuantity", this.stockQuantity);
       data.append("photo", this.selectedFile, this.selectedFile.name);
       console.log (data)
-      let res = await this.$axios.$put(`http://localhost:1010/api/products/${this.$route.params.id}`, data);
+      let res = await this.$axios.$put(`/api/products/${this.$route.params.id}`, data);
       this.$router.push("/")
     }
   }
