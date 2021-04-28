@@ -23,7 +23,7 @@
                   </li>
                 </ul>
               </div>
-              <h1 class="a-spacing-medium a-spacing-top-medium">Your Addresses</h1>
+              <h1 class="a-spacing-medium a-spacing-top-medium">Please choose or add your address</h1>
               <!-- Message from Server -->
               <div class="a-section a-spacing-none a-spacing-top-small">
                 <b>{{ message }}</b>
@@ -88,6 +88,7 @@
         </div>
       </div>
     </div>
+
     <!--/REGISTER ADDRESS-->
   </main>
   <!--/MAIN-->

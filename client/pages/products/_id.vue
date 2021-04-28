@@ -255,13 +255,13 @@
                     </span>
                   </div>
                   <div class="a-button-stack">
-                    <span class="a-spacing-small a-button-primary a-button-icon">
+                    <nuxt-link to="/address" class="a-spacing-small a-button-primary a-button-icon">
                       <span class="a-button-inner">
                         <i class="a-icon a-icon-buynow"></i>
                         <input type="submit" name="submit.add-to-cart" class="a-button-input" />
                         <span class="a-button-text">Buy Now</span>
                       </span>
-                    </span>
+                    </nuxt-link>
                   </div>
                 </div>
                 <div class="a-row">
