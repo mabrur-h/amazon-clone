@@ -88,7 +88,15 @@
         </div>
       </div>
     </div>
-
+    <nuxt-link to="/placeorder" style="width: 300px">
+                <span class="a-spacing-small a-button-primary a-button-icon">
+                      <span class="a-button-inner">
+                        <i class="a-icon a-icon-cart"></i>
+                        <input type="submit" name="submit.add-to-cart" class="a-button-input" />
+                        <span class="a-button-text">Add to Cart</span>
+                      </span>
+                    </span>
+    </nuxt-link>
     <!--/REGISTER ADDRESS-->
   </main>
   <!--/MAIN-->
